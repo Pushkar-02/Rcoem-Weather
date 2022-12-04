@@ -13,9 +13,10 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/img1" />
 
     <TextView
@@ -45,7 +46,9 @@
         app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.196" />
+        app:layout_constraintVertical_bias="0.196"
+        android:imeOptions="actionSearch"
+        android:inputType="text"/>
 
     <TextView
         android:id="@+id/City_Name"
@@ -93,40 +96,92 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dfdf"
+        android:text=""
         android:textAlignment="center"
-        android:textSize="25sp"
         android:textColor="#404a43"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/City_temp"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/City_temp"
         app:layout_constraintTop_toBottomOf="@+id/City_temp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.112" />
 
     <TextView
         android:id="@+id/city_temp_mini"
-        android:layout_width="83dp"
-        android:layout_height="36dp"
-        android:text="TextView"
-        android:textSize="20sp"
+        android:layout_width="75dp"
+        android:layout_height="37dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/city_temp_max"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/description"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="@+id/City_temp"
         app:layout_constraintTop_toBottomOf="@+id/description"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.111" />
 
     <TextView
         android:id="@+id/city_temp_max"
-        android:layout_width="83dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="4dp"
-        android:text="TextView"
-        android:textSize="20sp"
+        android:layout_width="75dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="16dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/City_temp"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toEndOf="@+id/description"
         app:layout_constraintTop_toBottomOf="@+id/description"
-        app:layout_constraintVertical_bias="0.103" />
+        app:layout_constraintVertical_bias="0.111" />
+
+    <ImageView
+        android:id="@+id/img_temp_mini"
+        android:layout_width="47dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:baselineAlignBottom="true"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/city_temp_mini"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.059"
+        app:srcCompat="@drawable/min_temp_icon" />
+
+    <ImageView
+        android:id="@+id/img_temp_max"
+        android:layout_width="47dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/city_temp_max"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.058"
+        app:srcCompat="@drawable/max_temp_icon" />
+
+    <TextView
+        android:id="@+id/city_temp_feelslike"
+        android:layout_width="92dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="272dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/City_temp"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,9 +3,12 @@ package com.example.rcoem_weather;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SearchView;
@@ -25,13 +28,13 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String name, updated_at, description, temperature, min_temperature, max_temperature, pressure, wind_speed, humidity;
+    private String name, updated_at, description, temperature,feels_like, min_temperature, max_temperature, pressure, wind_speed, humidity;
     private int condition;
     private long update_time, sunset, sunrise;
     private String city = "";
 
     EditText sv;
-    TextView city_name,city_temp,city_desc;
+    TextView city_name,city_temp,city_desc,city_temp_mini,city_temp_max,city_feels_like;
     Button search_btn;
 
     @Override
@@ -41,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         //initializing instances
         initialize_variable();
+
+        listner();
 
         search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         city_temp = findViewById(R.id.City_temp);
         search_btn = findViewById(R.id.searchbtn);
         city_desc = findViewById(R.id.description);
+        city_temp_mini = findViewById(R.id.city_temp_mini);
+        city_temp_max = findViewById(R.id.city_temp_max);
+        city_feels_like = findViewById(R.id.city_temp_feelslike);
+
     }
 
     private void searchCity(String cn) {
@@ -104,8 +113,9 @@ public class MainActivity extends AppCompatActivity {
                 description = response.getJSONObject("current").getJSONArray("weather").getJSONObject(0).getString("main");
 
                 temperature = String.valueOf(Math.round(response.getJSONObject("current").getDouble("temp") - 273.15));
-//                min_temperature = String.format("%.0f", response.getJSONArray("daily").getJSONObject(0).getJSONObject("temp").getDouble("min") - 273.15);
-//                max_temperature = String.format("%.0f", response.getJSONArray("daily").getJSONObject(0).getJSONObject("temp").getDouble("max") - 273.15);
+                min_temperature = String.format("%.0f", response.getJSONArray("daily").getJSONObject(0).getJSONObject("temp").getDouble("min") - 273.15);
+                max_temperature = String.format("%.0f", response.getJSONArray("daily").getJSONObject(0).getJSONObject("temp").getDouble("max") - 273.15);
+                feels_like =  String.valueOf(Math.round(response.getJSONObject("current").getDouble("feels_like") - 273.15));
 //                pressure = response.getJSONArray("daily").getJSONObject(0).getString("pressure");
 //                wind_speed = response.getJSONArray("daily").getJSONObject(0).getString("wind_speed");
 //                humidity = response.getJSONArray("daily").getJSONObject(0).getString("humidity");
@@ -120,10 +130,28 @@ public class MainActivity extends AppCompatActivity {
         Log.i("json_req", "Day 0");
     }
 
+    private void listner(){
+        sv.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_SEARCH) {
+                    city = sv.getText().toString();
+                    searchCity(city);
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
     @SuppressLint("SetTextI18n")
     private void updateUI(){
         city_name.setText(city.toUpperCase()+"'s Temperature");
         city_temp.setText(temperature + "°C");
         city_desc.setText(description);
+        city_temp_max.setText(max_temperature+ "°C");
+        city_temp_mini.setText(min_temperature+ "°C");
+        city_feels_like.setText("Feels like "+feels_like+ "°C");
     }
+
 }
