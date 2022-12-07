@@ -6,7 +6,14 @@
         <entry key="..\:/Users/Asus/AndroidStudioProjects/RCOEM_Weather/app/src/main/res/drawable/round_btn.xml" value="0.2725" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/RCOEM_Weather/app/src/main/res/drawable/rounded_btn.xml" value="0.2725" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/RCOEM_Weather/app/src/main/res/layout/activity_main.xml" value="0.2546875" />
+<<<<<<< HEAD
         <entry key="..\:/Users/Asus/OneDrive/Documents/GitHub/Rcoem-Weather/RCOEM_Weather/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+=======
+        <entry key="..\:/Users/Asus/OneDrive/Documents/GitHub/Rcoem-Weather/RCOEM_Weather/app/src/main/res/layout/activity_main.xml" value="0.26875" />
+        <entry key="..\:/Users/siddh/Rcoem-Weather/RCOEM_Weather/app/src/main/res/drawable/backgrnd_img2_background.xml" value="0.1" />
+        <entry key="..\:/Users/siddh/Rcoem-Weather/RCOEM_Weather/app/src/main/res/drawable/backgrnd_img_background.xml" value="0.1" />
+        <entry key="..\:/Users/siddh/Rcoem-Weather/RCOEM_Weather/app/src/main/res/layout/activity_main.xml" value="0.19791666666666666" />
+>>>>>>> 7c1ad40b7ed8887bf53b4757a72d27b6838b8bd2
       </map>
     </option>
   </component>
